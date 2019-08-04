@@ -421,27 +421,26 @@
       
         
           
-            <p><strong>URL</strong> :<a href="https://www.luogu.org/problem/CF664A" target="_blank" rel="noopener">洛谷</a></p>
-<p>这是道数论题～</p>
-<p><strong>题面描述</strong>:</p>
-<p>给出$a$,$b$,求$a,a+1,a+2……b$的最大公约数</p>
-<p><strong>思路</strong>:</p>
-<p><strong>相邻两个自然数互质</strong>，所以如果$a&lt;b$的话，答案就是1，如果$a=b$的话，答案就是$a$～</p>
-<p><strong>为什么呢？下面给出相邻两个自然数互质的证明</strong></p>
-<p> <em>设小的数为$a$，则大的为$a+1$</em> </p>
-<p> <em>假设两数不互质，则有一个大于1的公约数m</em></p>
-<p> <em>$\because$ 有一个大于1的公约数m</em></p>
-<p> <em>$\therefore$ $xm=a,ym=a+1$</em></p>
-<p> <em>$\therefore$ $m(y-x)=1$</em></p>
-<p> <em>$\because$ $m&gt;1,y-x\geq1$</em></p>
-<p> <em>$\therefore$ 矛盾，命题不成立</em></p>
-<p> <em>$\therefore$ 相邻两个自然数互质</em></p>
-<p>但是我们发现$a,b&lt;=10^{100}$所以我们可以使用$Python$自带高精度，如果要使用$C++$的话，就用两个字符串读入数然后逐个比较～</p>
-<p><strong>代码($Python$)</strong>:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a,b=input().split()<span class="comment">#因为a,b在1行，所以使用split</span></span><br><span class="line">a=int(a)<span class="comment">#转整数</span></span><br><span class="line">b=int(b)</span><br><span class="line"><span class="keyword">if</span> a&lt;b:<span class="comment">#如果a不等于b，输出1</span></span><br><span class="line">    print(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">else</span> :<span class="comment">#如果a等于b，输出a</span></span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
-
-
+            <p>
+              URL :洛谷
+这是道数论题～
+题面描述:
+给出$a$,$b$,求$a,a+1,a+2……b$的最大公约数
+思路:
+相邻两个自然数互质，所以如果$a&lt;b$的话，答案就是1，如果$a=b$的话，答案就是$a$～
+为什么呢？下面给出相邻两个自然数互质的证明
+ 设小的数为$a$，则大的为$a+1$ 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/02/CF664A-Complicated-GCD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -581,16 +580,25 @@
       
         
           
-            <p><strong>URL</strong>: <a href="https://www.luogu.org/problem/CF440A" target="_blank" rel="noopener">洛谷</a></p>
-<p>这明显是恶意评分好吗……23333</p>
-<p><strong>思路</strong>：</p>
-<p>开一个bool数组存储是否有了这个数，输入完再扫描一遍就可以啦~</p>
-<p>解释看代码～</p>
-<p><strong>代码</strong>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;//头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">///名域</span></span><br><span class="line"><span class="keyword">bool</span> x[<span class="number">100000</span>];<span class="comment">//用于存储该数是否出现</span></span><br><span class="line"><span class="keyword">int</span> n,tmp;<span class="comment">//n表示数的个数，tmp用于存储数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;<span class="comment">//输入</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++) <span class="built_in">cin</span>&gt;&gt;tmp,x[tmp]=<span class="number">1</span>;<span class="comment">//标注这个数已出现</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!x[i])&#123;<span class="comment">//如果没有出现该数，输出，结束程序</span></span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;i;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//其实这个好像可以不写……但是这是个好习惯</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+            <p>
+              URL: 洛谷
+这明显是恶意评分好吗……23333
+思路：
+开一个bool数组存储是否有了这个数，输入完再扫描一遍就可以啦~
+解释看代码～
+代码：
+#include&lt;bits/stdc++.h&gt;//头文件using namespace std;///名域bool x[100000];//
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/02/CF440A-Forgotten-Episode/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -742,14 +750,23 @@
       
         
           
-            <p><strong>题意描述</strong>：有许多电影和珂学家，电影有字幕和音频，珂学家听的懂音频满意，看得懂字幕为较满意，求最多满意的人，但语言的数非常大……</p>
-<p><strong>思路</strong>：哈希统计（可用STL map）STL大法好！！</p>
-<p>吐槽：数据居然会卡死unordered_map！</p>
-<p><strong>代码</strong>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">200005</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; m1;<span class="comment">//统计用映射</span></span><br><span class="line"><span class="keyword">int</span> n,m,a[N],b[N],c[N],ans=<span class="number">-1</span>;<span class="comment">//ans 记录答案下标</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">cin</span>&gt;&gt;a[i],m1[a[i]]++;<span class="comment">//统计珂学家 </span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++) <span class="built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++) <span class="built_in">cin</span>&gt;&gt;c[i];</span><br><span class="line">	ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m1[b[i]]&gt;m1[b[ans]]) ans=i;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(m1[b[i]]==m1[b[ans]]&amp;&amp;m1[c[i]]&gt;m1[c[ans]]) ans=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans+<span class="number">1</span>;<span class="comment">//因为是下标，所以要加一</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+            <p>
+              题意描述：有许多电影和珂学家，电影有字幕和音频，珂学家听的懂音频满意，看得懂字幕为较满意，求最多满意的人，但语言的数非常大……
+思路：哈希统计（可用STL map）STL大法好！！
+吐槽：数据居然会卡死unordered_map！
+代码：
+#include&lt;bits/stdc++.h&gt;u
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/27/洛谷CF670C-Cinema/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -901,14 +918,23 @@
       
         
           
-            <p><strong>URL</strong>: <a href="https://www.luogu.org/problemnew/show/P2280" target="_blank" rel="noopener">洛谷</a></p>
-<p><strong>题面描述</strong>：现在地图上有N个目标，用整数$x_i$,$y_i$表示目标在地图上的位置，每个目标都有一个价值Wi。求一颗炸弹最多能炸掉地图上总价值为多少的目标。</p>
-<p><strong>思路</strong>：求地图的前缀和，对每个点枚举，注意坐标中有0</p>
-<p><strong>代码</strong>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,r,s[<span class="number">5005</span>][<span class="number">5005</span>],ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;r;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b,w;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;w;</span><br><span class="line">		s[a+<span class="number">1</span>][b+<span class="number">1</span>]=w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5002</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">5002</span>;j++)&#123;</span><br><span class="line">			s[i][j]=s[i][j]+s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=r;i&lt;=<span class="number">5002</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=r;j&lt;=<span class="number">5002</span>;j++)&#123;</span><br><span class="line">			ans=max(ans,s[i][j]-s[i-r][j]-s[i][j-r]+s[i-r][j-r]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+            <p>
+              URL: 洛谷
+题面描述：现在地图上有N个目标，用整数$x_i$,$y_i$表示目标在地图上的位置，每个目标都有一个价值Wi。求一颗炸弹最多能炸掉地图上总价值为多少的目标。
+思路：求地图的前缀和，对每个点枚举，注意坐标中有0
+代码：
+#include&lt;bits/stdc++.h&gt;usin
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/27/LG2280-HNOI2003-激光炸弹/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1060,19 +1086,23 @@
       
         
           
-            <p>这道题是一道方法非常多的题……</p>
-<p>首先，暴力$O(n^2)$肯定过不了……</p>
-<p>于是，我们的视线转向<strong>枚举B，找有几个C+A</strong>，然后我们就想到cnt数组，看了一眼数据范围，是小于long long的……果断想写哈希，但是突然想到可以用map映射啊……（STL大法好）</p>
-<p>于是代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="built_in">map</span>&lt;ll,ll&gt; m;<span class="comment">//映射</span></span><br><span class="line">ll c,n,t,ans=<span class="number">0</span>,k[<span class="number">200005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;c;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;k[i];</span><br><span class="line">		m[k[i]]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		ans+=m[c+k[i]];<span class="comment">//加上c+k[i]的个数</span></span><br><span class="line">		<span class="keyword">if</span>(c==<span class="number">0</span>) ans--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是呢，map是一个自带排序的STL，所以时间慢了很多，怎么解决呢？<del>散列</del>我在OiWiki和C++ Reference查到了这样一个神奇的STL：<strong>unordered_map</strong>（同样还有unordered_set）唯一的问题是——<strong>只支持C++11或以上</strong>……但是万能的洛谷都支持到C++17啦！</p>
-<p>而且代码几乎没改：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,ll&gt; m;<span class="comment">//不排序的映射!</span></span><br><span class="line">ll c,n,t,ans=<span class="number">0</span>,k[<span class="number">200005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;c;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;k[i];</span><br><span class="line">		m[k[i]]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		ans+=m[c+k[i]];<span class="comment">//加上c+k[i]的个数</span></span><br><span class="line">		<span class="keyword">if</span>(c==<span class="number">0</span>) ans--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间只用了300ms左右！（辣么多打表提交0ms是什么鬼啊！）</p>
-
+            <p>
+              这道题是一道方法非常多的题……
+首先，暴力$O(n^2)$肯定过不了……
+于是，我们的视线转向枚举B，找有几个C+A，然后我们就想到cnt数组，看了一眼数据范围，是小于long long的……果断想写哈希，但是突然想到可以用map映射啊……（STL大法好）
+于是代码
+#include&lt;bits
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/20/题解LG1102——A-B数对/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1212,37 +1242,20 @@
       
         
           
-            <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="1-什么是wordpress？"><a href="#1-什么是wordpress？" class="headerlink" title="1. 什么是wordpress？"></a>1. 什么是wordpress？</h2><h2 id="2-Part-1-免费域名"><a href="#2-Part-1-免费域名" class="headerlink" title="2. Part 1 免费域名"></a>2. Part 1 免费域名</h2><h2 id="3-Part-2-免费虚拟主机"><a href="#3-Part-2-免费虚拟主机" class="headerlink" title="3. Part 2 免费虚拟主机"></a>3. Part 2 免费虚拟主机</h2><h2 id="4-Part-3-上传网站文件"><a href="#4-Part-3-上传网站文件" class="headerlink" title="4. Part 3 上传网站文件"></a>4. Part 3 上传网站文件</h2><h2 id="5-Part-4-10分钟安装"><a href="#5-Part-4-10分钟安装" class="headerlink" title="5. Part 4 10分钟安装"></a>5. Part 4 10分钟安装</h2><h1 id="注：本文写使用wordpress博客"><a href="#注：本文写使用wordpress博客" class="headerlink" title="注：本文写使用wordpress博客"></a>注：<strong>本文写使用wordpress博客</strong></h1><p>摘自<a href="https://baike.baidu.com/item/WordPress/450615?fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WordPress是使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站。也可以把 WordPress当作一个内容管理系统（CMS）来使用。</span><br></pre></td></tr></table></figure>
-
-<h4 id="优点1：免费"><a href="#优点1：免费" class="headerlink" title="优点1：免费"></a>优点1：免费</h4><p>wordpress这套程序本身是完全永久免费的！</p>
-<h4 id="优点2：对SEO友好"><a href="#优点2：对SEO友好" class="headerlink" title="优点2：对SEO友好"></a>优点2：对SEO友好</h4><p>wordpress搭建的博客对seo搜索引擎友好，收录也快，排名靠前</p>
-<h4 id="优点3：强大的社区支持"><a href="#优点3：强大的社区支持" class="headerlink" title="优点3：强大的社区支持"></a>优点3：强大的社区支持</h4><p>wordpress有强大的社区支持，有上千万的开发者贡献和审查wordpress，所以wordpress是安全并且活跃的。</p>
-<h4 id="缺点1：静态化做得不好"><a href="#缺点1：静态化做得不好" class="headerlink" title="缺点1：静态化做得不好"></a>缺点1：静态化做得不好</h4><p>静态化较差，确切地说是真正静态化做得不好，如果要想对整个网站生成真正静态化页面，还做不好，最多只能生成首页和文章页静态页面，所以只能对整站实现伪静态化!</p>
-<p>如需HEXO版，左转<a href="https://www.luogu.org/blog/0Umaru0/hexo-bo-ke-da-jian-shuo-ming-shu-zhi-bei-shu-post" target="_blank" rel="noopener">大佬博客</a></p>
-<p>你还可以使用洛谷博客，csdn博客（滑稽）</p>
-<h4 id="先给大家看个样例-我的博客"><a href="#先给大家看个样例-我的博客" class="headerlink" title="先给大家看个样例-我的博客"></a>先给大家看个<a href="https://www.lijiaan.tk" target="_blank" rel="noopener">样例-我的博客</a></h4><h1 id="现在开始"><a href="#现在开始" class="headerlink" title="现在开始"></a>现在开始</h1><h2 id="Part-1-免费域名"><a href="#Part-1-免费域名" class="headerlink" title="Part 1 免费域名"></a>Part 1 免费域名</h2><p>这个在<a href="http://freenom.com" target="_blank" rel="noopener">Freenom</a>就可以得到啦~</p>
-<p>1.输入自己想要的域名，点击Check Availability<br><img src="https://upload-images.jianshu.io/upload_images/843767-3fa5ef39e967faf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>2.选择一个域名，点击后面的Get it now!，这里以.ml为例，点击上方的Checkout<br><img src="https://upload-images.jianshu.io/upload_images/843767-a238fdbb8245cb1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>3.输入邮箱，注册账号<br><img src="https://upload-images.jianshu.io/upload_images/843767-7d11f8587c37a2b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>4.进入My Domains(我的域名)页面，查看刚刚注册的域名<br><img src="https://s2.ax1x.com/2019/03/25/AtLJyQ.png" alt></p>
-<h2 id="大功告成！！"><a href="#大功告成！！" class="headerlink" title="大功告成！！"></a>大功告成！！</h2><hr>
-<h1 id="Part-2-免费虚拟主机"><a href="#Part-2-免费虚拟主机" class="headerlink" title="Part 2 免费虚拟主机"></a>Part 2 免费虚拟主机</h1><p>这里推荐使用<a href="http://haozi56.cn/" target="_blank" rel="noopener">耗子主机</a>，很快就可以开通了，而且加上CDN后很快。</p>
-<p>第一步，开通主机，最好选择法国的，然后账号密码你自己看。<br><img src="https://s2.ax1x.com/2019/05/04/Ediwj0.png" alt><br>看到这个页面<img src="https://s2.ax1x.com/2019/05/04/Edidcq.png" alt></p>
-<h2 id="大功告成！！-1"><a href="#大功告成！！-1" class="headerlink" title="大功告成！！"></a>大功告成！！</h2><hr>
-<h1 id="Part-3-上传网站文件"><a href="#Part-3-上传网站文件" class="headerlink" title="Part 3  上传网站文件"></a>Part 3  上传网站文件</h1><p>这里就尴尬了，directadmin最多支持10M，但是最新版wordpress有10.2M多……</p>
-<p><a href="https://cn.wordpress.org/latest-zh_CN.zip" target="_blank" rel="noopener">下载最新wordpress简体中文</a></p>
-<h3 id="介绍神器——FTP协议"><a href="#介绍神器——FTP协议" class="headerlink" title="介绍神器——FTP协议"></a>介绍神器——FTP协议</h3><p>推荐<a href="https://get.flashfxp.com/ftp/client/download/FlashFXP54_3970_Setup.exe" target="_blank" rel="noopener">FlashFxp</a>，但只能用30天（其实可以找<a href="https://blog.csdn.net/wz947324/article/details/80360692" target="_blank" rel="noopener">破解版</a>，很容易找到的）</p>
-<p><img src="https://s2.ax1x.com/2019/03/25/AtO7CV.png" alt></p>
-<p>1.输入Ip，账号密码，服务器如果是法国的那么Ip应该是91.121.30.141，账号密码就是你刚才设置的。<br><img src="https://s2.ax1x.com/2019/05/04/EdF4Rs.png" alt></p>
-<p>2.在左边找到你下载下来的压缩包，拖进右边的wwwroot文件夹里面。<br><img src="https://s2.ax1x.com/2019/05/04/Edk9L6.png" alt></p>
-<p>3.登录主机控制面板解压缩<br><img src="https://s2.ax1x.com/2019/05/04/EdkeSA.png" alt><br><img src="https://s2.ax1x.com/2019/05/04/EdkeSA.png" alt></p>
-<p>4.把文件夹里面的东西放到外面，先剪切，再到外面复制。<br>这一步比较简单，不放图了。</p>
-<h2 id="大功告成！！-2"><a href="#大功告成！！-2" class="headerlink" title="大功告成！！"></a>大功告成！！</h2><hr>
-<h1 id="Part-4-十分钟安装"><a href="#Part-4-十分钟安装" class="headerlink" title="Part 4 十分钟安装"></a>Part 4 十分钟安装</h1><p>1.登录控制面板，绑定你刚才注册的域名<br><img src="https://s2.ax1x.com/2019/05/04/Edk2Ox.png" alt><br>2.去freenom控制面板增加一条A记录到刚才那个Ip地址(不要看图中那个)<br><img src="https://coderschool.cn/wp-content/uploads/2017/03/freenom9.png" alt><br>3.等一会，在浏览器里输入你刚刚的域名，应该就可以看到安装页面了！数据库主机填localhost，数据库名和账号名填你申请主机时的账号，数据库密码填你申请主机时的密码，如果不对，试试空着不填。表前缀不用改。<br><a href="http://jingyan.baidu.com/album/47a29f24073b26c0142399d6.html?picindex=8" target="_blank" rel="noopener">如果实在不会，点我</a></p>
-<p>4.输入你自己的站点标题，管理员账号和密码。这一步比较简单，也不放图了。</p>
-<h2 id="大功告成！！-3"><a href="#大功告成！！-3" class="headerlink" title="大功告成！！"></a>大功告成！！</h2><hr>
-<h1 id="好了，你的博客已经搭建完成了！"><a href="#好了，你的博客已经搭建完成了！" class="headerlink" title="好了，你的博客已经搭建完成了！"></a>好了，你的博客已经搭建完成了！</h1><h3 id="我有空教一下大家怎么用cloudflare-CDN"><a href="#我有空教一下大家怎么用cloudflare-CDN" class="headerlink" title="我有空教一下大家怎么用cloudflare CDN"></a>我有空教一下大家怎么用cloudflare CDN</h3>
+            <p>
+              目录1. 什么是wordpress？2. Part 1 免费域名3. Part 2 免费虚拟主机4. Part 3 上传网站文件5. Part 4 10分钟安装注：本文写使用wordpress博客摘自百度百科
+WordPress是使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/09/怎么建立一个自己的wordpress博客（完全免费）/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1394,18 +1407,20 @@
       
         
           
-            <p>这道题很简单，我们先写个DP：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;//头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">11</span>][<span class="number">11</span>],f[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> s;</span><br><span class="line"><span class="keyword">int</span> n,i,j,k,k1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k1);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;s);</span><br><span class="line">	<span class="keyword">for</span>(i=n; i &gt;=<span class="number">1</span> ;i--)&#123;</span><br><span class="line">		a[i][i]=s%<span class="number">10</span>;</span><br><span class="line">		s/=<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">for</span>(j=i<span class="number">-1</span>;j&gt;=<span class="number">1</span>;j--)</span><br><span class="line">			a[j][i]=a[j][i<span class="number">-1</span>]*<span class="number">10</span>+a[i][i];</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">		f[i][<span class="number">0</span>]=a[<span class="number">1</span>][i];</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=k1; k++)</span><br><span class="line">		<span class="keyword">for</span>(i=k+<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">			<span class="keyword">for</span>(j=k; j&lt;i;j++)</span><br><span class="line">				f[i][k] = max(f[i][k],f[j][k<span class="number">-1</span>]*a[j+<span class="number">1</span>][i]);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,f[n][k1]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后WA了………………</p>
-<p>别慌，不是正解</p>
-<p>首先，有个东西叫unsigned __int128</p>
-<p>其次，我们要学会打表<del>变态数据</del></p>
-<p>所以代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,k,i,k1,j;</span><br><span class="line"><span class="keyword">bool</span> flag1=<span class="number">0</span>,flag2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">unsigned</span> __<span class="function">int128 <span class="title">read</span><span class="params">()</span></span>&#123;<span class="comment">//快读模板</span></span><br><span class="line">    <span class="keyword">unsigned</span> __int128 x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)</span><br><span class="line">            f=<span class="number">-1</span>;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">40</span>&amp;&amp;ch==<span class="string">'2'</span>&amp;&amp;k1==<span class="number">3</span>) flag1=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">40</span>&amp;&amp;ch==<span class="string">'8'</span>&amp;&amp;k1==<span class="number">3</span>) flag2=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">unsigned</span> __int128 x)</span></span>&#123;<span class="comment">//输出模板</span></span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">        x=-x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;<span class="number">9</span>)</span><br><span class="line">        print(x/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">unsigned</span> __int128 a[<span class="number">5100</span>][<span class="number">5100</span>],f[<span class="number">5100</span>][<span class="number">5100</span>];</span><br><span class="line"><span class="keyword">unsigned</span> __int128 s;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;k1;</span><br><span class="line">	s=read();</span><br><span class="line">	<span class="keyword">for</span>(i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">		a[i][i]=s%<span class="number">10</span>;</span><br><span class="line">		s/=<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">for</span>(j=i<span class="number">-1</span>;j&gt;=<span class="number">1</span>;j--)</span><br><span class="line">			a[j][i]=a[j][i<span class="number">-1</span>]*<span class="number">10</span>+a[i][i];</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		f[i][<span class="number">0</span>]=a[<span class="number">1</span>][i];</span><br><span class="line">	<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=k1;k++) <span class="comment">//r为乘号个数</span></span><br><span class="line">		<span class="keyword">for</span>(i=k+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">			<span class="keyword">for</span> (j=k;j&lt;i;j++)</span><br><span class="line">				f[i][k]=max(f[i][k],f[j][k<span class="number">-1</span>]*a[j+<span class="number">1</span>][i]);</span><br><span class="line">	<span class="keyword">if</span>((<span class="keyword">int</span>)f[n][k1]==<span class="number">1134050280</span>)flag2=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>((<span class="keyword">int</span>)f[n][k1]==<span class="number">1973093376</span>)flag1=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(flag1)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"6051462042301381677936607451948047334400"</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(flag2) &#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"1167014535094200134427105768351477661728"</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	print(f[n][k1]);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+            <p>
+              这道题很简单，我们先写个DP：
+#include&lt;cstdio&gt;//头文件using namespace std;long long a[11][11],f[11][11];long long s;int n,i,j,k,k1;int max(int a, int b)&#123;	re
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/09/论乘积最大/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1545,30 +1560,21 @@
       
         
           
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一个oier，我们通常被<del>误</del>认为是电脑高(ju)手(ruo)，所以，我们承担了我们参加的所有小组活动的<strong>PPT</strong>制作者。但是，我做出来的PPT总是这样子的:<br><img src="https://s2.ax1x.com/2019/06/02/V81iJ1.png" alt="烂PPT"><br>弱爆了有没有？<br>那么，我来给大家讲一讲做PPT的小技巧吧！</p>
-<h1 id="开始（本文同步发表于李嘉安的博客）"><a href="#开始（本文同步发表于李嘉安的博客）" class="headerlink" title="开始（本文同步发表于李嘉安的博客）"></a>开始（本文同步发表于<a href="https://www.lijiaan.tk" target="_blank" rel="noopener">李嘉安的博客</a>）</h1><h2 id="技巧一：发散找图"><a href="#技巧一：发散找图" class="headerlink" title="技巧一：发散找图"></a>技巧一：发散找图</h2><p>怎么找到一张好图呢？</p>
-<p>以贸易战为例</p>
-<p>我们来试一试直接搜索<br><img src="https://s2.ax1x.com/2019/06/01/V3mNY8.png" alt="直接搜"><br>双十二广告都出来了……<del>不过表情包不错</del></p>
-<p>小声BB：换个搜索引擎</p>
-<p><img src="https://s2.ax1x.com/2019/06/01/V3mrmn.png" alt="直接搜2"><br><del>诶那图不是百度百科的吗</del></p>
-<p>发散一下<br><img src="https://s2.ax1x.com/2019/06/02/V81FRx.png" alt="发散"><br><img src="https://s2.ax1x.com/2019/06/02/V81VsO.png" alt="武术"><br>做出来是这样子的(我们信息老师做的)：<img src="https://s2.ax1x.com/2019/06/02/V81uod.png" alt="优秀"></p>
-<h2 id="技巧二：裁剪"><a href="#技巧二：裁剪" class="headerlink" title="技巧二：裁剪"></a>技巧二：裁剪</h2><p>这里有一张图:<br><img src="https://s2.ax1x.com/2019/06/02/V81teg.png" alt><br>不裁剪：<br><img src="https://s2.ax1x.com/2019/06/02/V81JOS.png" alt><br>我们把它的几个部分裁出来：<br><img src="https://s2.ax1x.com/2019/06/02/V81syT.png" alt><br>效果：<br><img src="https://s2.ax1x.com/2019/06/02/V81gw4.png" alt="1"><br><img src="https://s2.ax1x.com/2019/06/02/V83MBF.png" alt="2"><br><img src="https://s2.ax1x.com/2019/06/02/V833N9.png" alt="3"><br><img src="https://s2.ax1x.com/2019/06/02/V83Y1x.png" alt="4"><br><img src="https://s2.ax1x.com/2019/06/02/V83Ru8.png" alt="5"><br>怎么样，学到了吧~</p>
-<h2 id="技巧三：smartart"><a href="#技巧三：smartart" class="headerlink" title="技巧三：smartart"></a>技巧三：smartart</h2><p>这是个极其优秀的东西，可以帮你做流程图，思维导图，目录……你想干嘛就干嘛</p>
-<p>举个例子：<br><img src="https://s2.ax1x.com/2019/06/02/V8y9G6.png" alt><br>这样肯定不行，我们加上缩进。<br><img src="https://s2.ax1x.com/2019/06/02/V8ygF1.png" alt><br>还是不好看,使用smartart！<br><img src="https://s2.ax1x.com/2019/06/02/V86U7d.png" alt><br>好多了有没有？</p>
-<p>怎么使用它呢？<br>来看这个动图<br><img src="https://s2.ax1x.com/2019/06/06/VdeEB8.gif" alt><br>很简单对不对？</p>
-<h2 id="技巧四：啥？PPT还有布尔运算"><a href="#技巧四：啥？PPT还有布尔运算" class="headerlink" title="技巧四：啥？PPT还有布尔运算"></a>技巧四：啥？PPT还有布尔运算</h2><p>提到布尔运算，大家肯定想到bool，那么PPT的布尔运算是什么呢？</p>
-<p>看这里：<br><img src="https://s2.ax1x.com/2019/06/02/V88K2t.gif" alt><br>我们甚至可以在下面插入一个视频：<br><img src="https://s2.ax1x.com/2019/06/02/V8YgiQ.gif" alt><br>学到了吗？</p>
-<h2 id="技巧五：平滑？啥是平滑？"><a href="#技巧五：平滑？啥是平滑？" class="headerlink" title="技巧五：平滑？啥是平滑？"></a>技巧五：平滑？啥是平滑？</h2><p>这是一个最近才出的功能<br>举个例子（gif效果可能不太好）：</p>
-<p>基本操作：<br><img src="https://s2.ax1x.com/2019/06/02/V8tMFg.gif" alt></p>
-<p>骚气操作：<br><img src="https://s2.ax1x.com/2019/06/02/V80bBn.gif" alt></p>
-<p>怎么做呢？看这个动图<br><img src="https://s2.ax1x.com/2019/06/06/Vdyylj.gif" alt></p>
-<p>学到了吗？</p>
-<h2 id="附：制作PPT所需的东西"><a href="#附：制作PPT所需的东西" class="headerlink" title="附：制作PPT所需的东西"></a>附：制作PPT所需的东西</h2><p><a href="https://pixabay.com/zh/" target="_blank" rel="noopener">免费的高清图片——pixabay</a></p>
-<p><a href="http://pictogram2.com/" target="_blank" rel="noopener">人物矢量图</a></p>
-<p><a href="https://www.iconfont.cn/" target="_blank" rel="noopener">smartart没有图？——阿里巴巴矢量图标库</a></p>
-<p><a href="https://www.islide.cc/" target="_blank" rel="noopener">一款好的PPT插件——islide</a></p>
-<h1 id="谢谢你看到这里！"><a href="#谢谢你看到这里！" class="headerlink" title="谢谢你看到这里！"></a>谢谢你看到这里！</h1>
+            <p>
+              前言作为一个oier，我们通常被误认为是电脑高(ju)手(ruo)，所以，我们承担了我们参加的所有小组活动的PPT制作者。但是，我做出来的PPT总是这样子的:弱爆了有没有？那么，我来给大家讲一讲做PPT的小技巧吧！
+开始（本文同步发表于李嘉安的博客）技巧一：发散找图怎么找到一张好图呢？
+以贸易战为例
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/09/如何做好一个PPT/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
