@@ -390,13 +390,6 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
-  
 
 
 
@@ -729,43 +722,6 @@
 
 
 
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-  
-    
-    <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-    <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-  
-<!-- END LOCAL -->
-
-  
-
-  
-    <script>
-    function renderGitment(){
-      var gitment = new Gitmint({
-        id: window.location.pathname,
-        owner: 'johnvp22',
-        repo: 'blogcomment',
-        
-        lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-        
-        oauth: {
-        
-        
-          client_secret: '1c92a48d47e9eb5e1dc73b93d92d129a39cd7a2b',
-        
-          client_id: '300fd78a7d539752f7c4'
-        }});
-      gitment.render('gitment-container');
-    }
-
-    
-      renderGitment();
-    
-    </script>
-  
 
 
 
