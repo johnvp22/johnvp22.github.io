@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/20190622050607581_easyicon_net_64.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2019062205055062_easyicon_net_32.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="引言我看了一下，到目前为止好像没有一篇日报来整理C++的STL，那鄙人就稍微的来整理一下2333~ 并且这篇文章基本不是针对大佬的……大佬可直接无视，去看看紫荆花之恋啥的…… 开始本文同步发表于 李嘉安的博客（我是可以点的） 小声BB：我这整篇文章都是手打的……去我的博客给刷个访问量吧…… 一 set系列set——集合，是一个自带排序，去重的STL（multiset不去重，前加unordered_">
+<meta name="keywords" content="教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++STL从入门到出门">
+<meta property="og:url" content="http://yoursite.com/2019/08/10/C-STL从入门到出门/index.html">
+<meta property="og:site_name" content="lijiaan的博客">
+<meta property="og:description" content="引言我看了一下，到目前为止好像没有一篇日报来整理C++的STL，那鄙人就稍微的来整理一下2333~ 并且这篇文章基本不是针对大佬的……大佬可直接无视，去看看紫荆花之恋啥的…… 开始本文同步发表于 李嘉安的博客（我是可以点的） 小声BB：我这整篇文章都是手打的……去我的博客给刷个访问量吧…… 一 set系列set——集合，是一个自带排序，去重的STL（multiset不去重，前加unordered_">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T07:37:40.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++STL从入门到出门">
+<meta name="twitter:description" content="引言我看了一下，到目前为止好像没有一篇日报来整理C++的STL，那鄙人就稍微的来整理一下2333~ 并且这篇文章基本不是针对大佬的……大佬可直接无视，去看看紫荆花之恋啥的…… 开始本文同步发表于 李嘉安的博客（我是可以点的） 小声BB：我这整篇文章都是手打的……去我的博客给刷个访问量吧…… 一 set系列set——集合，是一个自带排序，去重的STL（multiset不去重，前加unordered_">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/10/C-STL从入门到出门/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>C++STL从入门到出门 | lijiaan的博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a058de863840e6d006454910b05349";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lijiaan的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">by lijiaan</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/C-STL从入门到出门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lijiaan(johnvp)">
+      <meta itemprop="description" content="lijiaan的OI博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lijiaan的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++STL从入门到出门
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-10 15:37:01 / 修改时间：15:37:40" itemprop="dateCreated datePublished" datetime="2019-08-10T15:37:01+08:00">2019-08-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/10/C-STL从入门到出门/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/08/10/C-STL从入门到出门/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>我看了一下，到目前为止好像没有一篇日报来整理C++的STL，那鄙人就稍微的来整理一下2333~</p>
+<p>并且这篇文章基本不是针对大佬的……大佬可直接无视，去看看紫荆花之恋啥的……</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="本文同步发表于-李嘉安的博客（我是可以点的）"><a href="#本文同步发表于-李嘉安的博客（我是可以点的）" class="headerlink" title="本文同步发表于 李嘉安的博客（我是可以点的） "></a>本文同步发表于<a href="https://www.lijiaan.top" target="_blank" rel="noopener"> 李嘉安的博客（我是可以点的） </a></h2><p>小声BB：我这整篇文章都是手打的……去我的博客给刷个访问量吧……</p>
+<h1 id="一-set系列"><a href="#一-set系列" class="headerlink" title="一 set系列"></a>一 set系列</h1><p>set——集合，是一个自带排序，去重的STL（multiset不去重，前加unordered_不排序）</p>
+<p>所以为啥要有unordered_multiset这玩意呢？我也不知道……</p>
+<h3 id="1-set"><a href="#1-set" class="headerlink" title="1.set"></a>1.set</h3><p><strong>a.定义</strong></p>
+<p>定义set的基本格式为</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;type_name&gt; set_name;</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;<span class="comment">//定义一个存储int的set</span></span><br></pre></td></tr></table></figure>
+
+<p>但是set中的元素必须定义小于号，所以往里面可以放结构体，但是需重载运算符，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">st</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> test a)<span class="keyword">const</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x&lt;a.x;<span class="comment">//按照x来比较</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以定义一个存储结构体的set了，如:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;st&gt; s;</span><br></pre></td></tr></table></figure>
+
+<p><strong>b.插入</strong></p>
+<p>使用insert函数</p>
+<p>如:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.insert(<span class="number">233</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果是结构体的话就把它先转为结构体</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.insert((st)&#123;<span class="number">1</span>,<span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>c.迭代器</strong></p>
+<p>这玩意就像一个指针一样～</p>
+<p>下面给出定义方法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::reverse_iterator rit;</span><br></pre></td></tr></table></figure>
+
+<p>这玩意的用处就是遍历set中的元素，而reverse_iterator则是反向遍历其中的元素，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=s.begin();it!=s.end();it++) <span class="built_in">cout</span>&lt;&lt;*it;</span><br><span class="line"><span class="keyword">for</span>(rit=s.rbegin();rit!=s.rend();rit++) <span class="built_in">cout</span>&lt;&lt;*rit;</span><br></pre></td></tr></table></figure>
+
+<p>如果是结构体的话则写成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=s.begin();it!=s.end();it++) <span class="built_in">cout</span>&lt;&lt;it-&gt;x;</span><br><span class="line"><span class="keyword">for</span>(rit=s.rbegin();rit!=s.rend();rit++) <span class="built_in">cout</span>&lt;&lt;rit-&gt;x;</span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=s.begin();it!=s.end();it++) <span class="built_in">cout</span>&lt;&lt;(*it).x;</span><br><span class="line"><span class="keyword">for</span>(rit=s.rbegin();rit!=s.rend();rit++) <span class="built_in">cout</span>&lt;&lt;(*rit).x;</span><br></pre></td></tr></table></figure>
+
+<p><strong>d.删除</strong></p>
+<p>使用erase函数，它既可以删除一个迭代器上的值，也可以删除set中的某个数，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.erase(<span class="number">4</span>);</span><br><span class="line">s.erase(it);</span><br></pre></td></tr></table></figure>
+
+<p>如果是结构体的话：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.insert((st)&#123;<span class="number">4</span>,<span class="number">5</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>e.寻找</strong></p>
+<p>使用find函数，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">it=s.find(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果是结构体的话：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">it=s.find((st)&#123;<span class="number">4</span>,<span class="number">5</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>f.其他</strong></p>
+<p>清空:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.clear();</span><br></pre></td></tr></table></figure>
+
+<p>判断是否为空：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(s.empty()) <span class="built_in">printf</span>(<span class="string">"set为空"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>总元素个数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"set有%d个元素"</span>,s.size());</span><br></pre></td></tr></table></figure>
+
+<p>寻找该元素（找不到返回s.end()）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">it=s.find(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-multiset"><a href="#2-multiset" class="headerlink" title="2.multiset"></a>2.multiset</h3><p><strong>a.定义</strong></p>
+<p>multiset和set唯一区别就是multiset不自动去重，且multiset和set的操作都是差不多的，定义只要将set改为multiset即可：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt; s;<span class="comment">//定义一个存储int的multiset</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>b.其他</strong></p>
+<p>multiset多了一个函数可用（其实set也可用，但作用就只限于判断是否有这个数了）：</p>
+<p>特定元素个数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"multiset中有%d个1"</span>,s.count(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-unordered-set-multiset-仅限C-11或以上"><a href="#3-unordered-set-multiset-仅限C-11或以上" class="headerlink" title="3.unordered_set/multiset(仅限C++11或以上)"></a>3.unordered_set/multiset(仅限C++11或以上)</h3><p>这就是不排序的set/multiset……函数都差不多</p>
+<h1 id="二-map系列-虽然有multimap-但我觉得没用，就不写了"><a href="#二-map系列-虽然有multimap-但我觉得没用，就不写了" class="headerlink" title="二 map系列(虽然有multimap,但我觉得没用，就不写了)"></a>二 map系列(虽然有multimap,但我觉得没用，就不写了)</h1><p>map——映射，是的，妈妈再也不用担心我不会写哈希啦~它自动按键值排序，unordered_则不排序。</p>
+<h3 id="1-map"><a href="#1-map" class="headerlink" title="1.map"></a>1.map</h3><p><strong>a.定义</strong><br>定义map的基本格式为</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;type_name,type_name&gt; map_name;</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; m;<span class="comment">//定义一个用int映射int的map</span></span><br></pre></td></tr></table></figure>
+
+<p>但是map中的元素必须定义小于号，所以往里面可以放结构体，但是需重载运算符，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">st</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> test a)<span class="keyword">const</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x&lt;a.x;<span class="comment">//按照x来比较</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以定义一个存储结构体的set了，如:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,st&gt; m;</span><br></pre></td></tr></table></figure>
+
+<p><strong>b.读取和删改</strong></p>
+<p>map的读取和删改只需想数组一样使用即可，如：</p>
+<p>读取,修改（自动添加）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m[<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//修改</span></span><br><span class="line"><span class="keyword">int</span> k=m[<span class="number">0</span>];<span class="comment">//读取</span></span><br></pre></td></tr></table></figure>
+
+<p>删除要用函数erase：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.erase(<span class="number">0</span>);<span class="comment">//删除m[0]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>c.其他</strong></p>
+<p>清空:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.clear();</span><br></pre></td></tr></table></figure>
+
+<p>判断是否为空：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(m.empty()) <span class="built_in">printf</span>(<span class="string">"map为空"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>总元素个数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"map有%d个元素"</span>,m.size());</span><br></pre></td></tr></table></figure>
+
+<p>寻找该元素（找不到返回m.end()）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">it=m.find(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-unordered-map-仅限C-11或以上"><a href="#2-unordered-map-仅限C-11或以上" class="headerlink" title="2.unordered_map(仅限C++11或以上)"></a>2.unordered_map(仅限C++11或以上)</h3><p><strong>a.定义</strong></p>
+<p>只要把map改为unordered_map即可~</p>
+<p>这个unordered_map就是不排序的map啦~能加快速度，因为一般写哈希时不需排序。如果你被卡的话可以试试这个，但是这玩意会被大量哈希碰撞卡死，比如说<a href="https://www.luogu.org/problem/CF670C" target="_blank" rel="noopener">CF670C Cinema</a>，最坏可以被卡到$O(n^2)$，但是也别慌，基本只有CF才有这种毒瘤数据。如果你是毒瘤出题人，那么具体怎么卡可以去看以前的日报。</p>
+<h1 id="三-stack-queue系列"><a href="#三-stack-queue系列" class="headerlink" title="三 stack/queue系列"></a>三 stack/queue系列</h1><p>stack——栈，当然，你知道栈是LIFO的，不用解释</p>
+<p>queue——队列，当然，你知道栈是FIFO的，不用解释</p>
+<p>deque——双向队列……这玩意就是一个容器上下都可pop和push</p>
+<h3 id="1-queue与stack"><a href="#1-queue与stack" class="headerlink" title="1.queue与stack"></a>1.queue与stack</h3><p><strong>a.定义</strong></p>
+<p>与其他STL同理，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br></pre></td></tr></table></figure>
+
+<p><strong>b.插入弹出</strong></p>
+<p>使用pop与push函数，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">q.pop();</span><br><span class="line">s.pop();</span><br><span class="line">q.push(<span class="number">1</span>);</span><br><span class="line">s.push(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>c.访问</strong></p>
+<p>stack是使用top</p>
+<p>queue是使用front和back</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> t=s.top(),f=q.front(),b=q.front();</span><br></pre></td></tr></table></figure>
+
+<p><strong>d.其他</strong></p>
+<p>清空:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.clear();</span><br><span class="line">q.clear();</span><br></pre></td></tr></table></figure>
+
+<p>判断是否为空：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(s.empty()) <span class="built_in">printf</span>(<span class="string">"stack为空"</span>);</span><br><span class="line"><span class="keyword">if</span>(q.empty()) <span class="built_in">printf</span>(<span class="string">"queue为空"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>总元素个数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"stack有%d个元素"</span>,s.size());</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"queue有%d个元素"</span>,q.size());</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-priority-queue"><a href="#2-priority-queue" class="headerlink" title="2.priority_queue"></a>2.priority_queue</h3><p><strong>1.定义</strong></p>
+<p>只需将queue改为priority_queue即可</p>
+<p>其他都差不多，就是它多了一个自动排序的功能</p>
+<h3 id="3-deque"><a href="#3-deque" class="headerlink" title="3.deque"></a>3.deque</h3><p><strong>a.定义</strong></p>
+<p>只需将queue改为deque即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; dq;</span><br></pre></td></tr></table></figure>
+
+<p><strong>b.插入弹出</strong></p>
+<p>使用pop与push函数，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dq.push_back(<span class="number">1</span>);</span><br><span class="line">dq.push_front(<span class="number">1</span>);</span><br><span class="line">dq.pop_back();</span><br><span class="line">dq.pop_front();</span><br></pre></td></tr></table></figure>
+
+<p><strong>c.访问</strong></p>
+<p>同queue是使用front和back</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b=dq.back(),b=dq.front();</span><br></pre></td></tr></table></figure>
+
+<p><strong>d.其他</strong></p>
+<p>清空:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dq.clear();</span><br></pre></td></tr></table></figure>
+
+<p>判断是否为空：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(dq.empty()) <span class="built_in">printf</span>(<span class="string">"deque为空"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>总元素个数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"deque有%d个元素"</span>,dq.size());</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-vector"><a href="#四-vector" class="headerlink" title="四 vector"></a>四 vector</h1><p>vector——矢量，其实你可以理解为一个动态长度的数组……</p>
+<p>附：vector有bool优化，如8个bool只需1字节</p>
+<p><strong>a.定义</strong></p>
+<p>与set等同理，如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;<span class="comment">//定义一个存储int的vector</span></span><br></pre></td></tr></table></figure>
+
+<p>这个不用定义小于号，因为它不排序啊</p>
+<p><strong>b.插入</strong></p>
+<p>如果要在末尾新增函数的话，使用push_back()</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v.push_back(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果要在中间插入的话，则使用insert。注：这个函数是线性复杂度的</p>
+<p>这个有两种写法，第一个是插入一个，第二个则是多个</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v.insert(v.begin(),<span class="number">233</span>);<span class="comment">//在第一个元素后插入一个233，第一个值是一个指针(也可使用迭代器)，第二个元素的话改为v.begin()+1即可</span></span><br><span class="line">v.insert(v.begin(),<span class="number">2</span>,<span class="number">233</span>)<span class="comment">//在第一个元素后插入两个233</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>c.删改</strong></p>
+<p>修改只需像普通数组使用即可：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v[<span class="number">0</span>]=<span class="number">233</span>;</span><br></pre></td></tr></table></figure>
+
+<p>删除使用erase函数，也有两种写法，第一个是删除一个，第二个则是多个：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v.erase(v.begin());<span class="comment">//删除第一个元素</span></span><br><span class="line">v.erase(v.begin(),v.begin()+<span class="number">1</span>);<span class="comment">//删除前两个元素</span></span><br></pre></td></tr></table></figure>
+
+<p>删除末尾元素则使用pop_back：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v.pop_back();</span><br></pre></td></tr></table></figure>
+
+<p><strong>d.其他</strong></p>
+<p>返回是否为空：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(v.empty()) <span class="built_in">printf</span>(<span class="string">"vector为空"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>返回元素个数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"vector有%d个元素"</span>,v.size());</span><br></pre></td></tr></table></figure>
+
+<h1 id="五-排序系列"><a href="#五-排序系列" class="headerlink" title="五.排序系列"></a>五.排序系列</h1><h3 id="1-sort"><a href="#1-sort" class="headerlink" title="1.sort"></a>1.sort</h3><p>这玩意大家都知道吧……从小到大排序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(a,a+n);</span><br></pre></td></tr></table></figure>
+
+<p>cmp自定义比较函数:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;a,<span class="keyword">const</span> <span class="keyword">int</span> &amp;b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a&gt;b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sort(a,a+n,cmp)</span><br></pre></td></tr></table></figure>
+
+<p>即可实现从大到小排序</p>
+<p>但旧版C++标准要求这玩意<strong>平均</strong>时间复杂度是$nlogn$</p>
+<p>而C++11或以上则要求<strong>最坏</strong>$nlogn$</p>
+<h3 id="2-stable-sort"><a href="#2-stable-sort" class="headerlink" title="2. stable_sort"></a>2. stable_sort</h3><p>这是个稳定的$nlogn$排序，用法和sort一样</p>
+<h1 id="七-String"><a href="#七-String" class="headerlink" title="七 String"></a>七 String</h1><p>string——字符串，其实这玩意有很多函数，下面进行介绍。</p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p>如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-字符串赋值"><a href="#2-字符串赋值" class="headerlink" title="2. 字符串赋值"></a>2. 字符串赋值</h3><p>众所周知，scanf是不支持string的！（但是scanf和printf其实是支持字符数组的）</p>
+<p>只能用cin2333</p>
+<p>赋值语句:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">"23333"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-转char数组"><a href="#3-转char数组" class="headerlink" title="3. 转char数组"></a>3. 转char数组</h3><p>在C语言里，也有很多字符串的函数，但是它们的参数都是char指针类型的，所以在C++里有两个函数能够转换string为char指针——data()/c_str()（它们是一样的）如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,s);<span class="comment">//编译错误</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,s.data())<span class="comment">//通过</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-大小"><a href="#4-大小" class="headerlink" title="4. 大小"></a>4. 大小</h3><p>好多函数可以返回string的长度：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"string的长度为%d"</span>,s.size());</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"string的长度为%d"</span>,<span class="built_in">strlen</span>(s.data()));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"string的长度为%d"</span>,s.length());</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h3><p><strong>a. 寻找某字符第一次出现的位置</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"字符a在%d位置出现"</span>,s.find(<span class="string">'a'</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>b. 截取子串</strong>:</p>
+<p>注意这个函数的参数是从哪个位置后面截几个</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"这个字符串第1位开始的2个字符构成的子串是%s"</span>,s.substr(<span class="number">0</span>,<span class="number">2</span>).data());</span><br></pre></td></tr></table></figure>
+
+<h1 id="六-时间复杂度系列"><a href="#六-时间复杂度系列" class="headerlink" title="六 时间复杂度系列"></a>六 时间复杂度系列</h1><p>这里说明一下各个结构的时间复杂度：</p>
+<h3 id="1-基于红黑树实现的STL"><a href="#1-基于红黑树实现的STL" class="headerlink" title="1. 基于红黑树实现的STL"></a>1. 基于红黑树实现的STL</h3><p>有：map,set,mutiset,mutimap</p>
+<p>它们大部分的操作均是O($logn$)的</p>
+<h3 id="2-基于哈希表的STL"><a href="#2-基于哈希表的STL" class="headerlink" title="2. 基于哈希表的STL"></a>2. 基于哈希表的STL</h3><p>有: unordered_map,unordered_set,unordered_multimap,unordered_multiset</p>
+<p>它们大部分操作均是O($1$)的(包括 “[ ]” 操作符)</p>
+<p>但是有大量哈希碰撞时则可被卡到O($n^2$)</p>
+<h3 id="3-vector"><a href="#3-vector" class="headerlink" title="3.vector"></a>3.vector</h3><p>vector总是另当别论……</p>
+<p>在中间插入:O($n$)</p>
+<p>在末尾插入:O($1$)</p>
+<p>在中间删除:O($n$)</p>
+<p>在末尾删除:O($1$)</p>
+<p>其他基本是:O($1$)</p>
+<h1 id="谢谢你看到这里！"><a href="#谢谢你看到这里！" class="headerlink" title="谢谢你看到这里！"></a>谢谢你看到这里！</h1>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/06/P1955-NOI2015-程序自动分析/" rel="next" title="P1955 [NOI2015]程序自动分析">
+                <i class="fa fa-chevron-left"></i> P1955 [NOI2015]程序自动分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lijiaan(johnvp)</p>
+              <p class="site-description motion-element" itemprop="description">lijiaan的OI博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/johnvp22" title="GitHub &rarr; https://github.com/johnvp22" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/johnvp@163.com" title="邮件 &rarr; johnvp@163.com"><i class="fa fa-fw fa-envelope"></i>邮件</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.luogu.org/space/show?uid=149872" title="洛谷 &rarr; https://www.luogu.org/space/show?uid=149872" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kaispace.com.cn" title="http://kaispace.com.cn" rel="noopener" target="_blank">张恺博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.蒋玥.tk" title="https://www.蒋玥.tk" rel="noopener" target="_blank">蒋玥博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://luogu.org" title="https://luogu.org" rel="noopener" target="_blank">洛谷</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div id="music163player">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=689126064&auto=1&height=32">
+			</iframe>
+		  </div>
+		  
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本文同步发表于-李嘉安的博客（我是可以点的）"><span class="nav-number">2.1.</span> <span class="nav-text">本文同步发表于 李嘉安的博客（我是可以点的） </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一-set系列"><span class="nav-number">3.</span> <span class="nav-text">一 set系列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-set"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-multiset"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.multiset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-unordered-set-multiset-仅限C-11或以上"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.unordered_set/multiset(仅限C++11或以上)</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#二-map系列-虽然有multimap-但我觉得没用，就不写了"><span class="nav-number">4.</span> <span class="nav-text">二 map系列(虽然有multimap,但我觉得没用，就不写了)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-map"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-unordered-map-仅限C-11或以上"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.unordered_map(仅限C++11或以上)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-stack-queue系列"><span class="nav-number">5.</span> <span class="nav-text">三 stack/queue系列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-queue与stack"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.queue与stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-priority-queue"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.priority_queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-deque"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.deque</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-vector"><span class="nav-number">6.</span> <span class="nav-text">四 vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五-排序系列"><span class="nav-number">7.</span> <span class="nav-text">五.排序系列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sort"><span class="nav-number">7.0.1.</span> <span class="nav-text">1.sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-stable-sort"><span class="nav-number">7.0.2.</span> <span class="nav-text">2. stable_sort</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七-String"><span class="nav-number">8.</span> <span class="nav-text">七 String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义"><span class="nav-number">8.0.1.</span> <span class="nav-text">1. 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-字符串赋值"><span class="nav-number">8.0.2.</span> <span class="nav-text">2. 字符串赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转char数组"><span class="nav-number">8.0.3.</span> <span class="nav-text">3. 转char数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-大小"><span class="nav-number">8.0.4.</span> <span class="nav-text">4. 大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-其他"><span class="nav-number">8.0.5.</span> <span class="nav-text">5.其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六-时间复杂度系列"><span class="nav-number">9.</span> <span class="nav-text">六 时间复杂度系列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基于红黑树实现的STL"><span class="nav-number">9.0.1.</span> <span class="nav-text">1. 基于红黑树实现的STL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基于哈希表的STL"><span class="nav-number">9.0.2.</span> <span class="nav-text">2. 基于哈希表的STL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-vector"><span class="nav-number">9.0.3.</span> <span class="nav-text">3.vector</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谢谢你看到这里！"><span class="nav-number">10.</span> <span class="nav-text">谢谢你看到这里！</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lijiaan(johnvp)</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: false,
+      appId: 'QTLKQ9EAiWHHmtTazks3k2Qc-MdYXbMMI',
+      appKey: '1y2re34IHis4AEqigyBCFgu0',
+      placeholder: '欢迎来评论~٩(๑❛ᴗ❛๑)۶',
+      avatar: 'mm',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/miku.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
