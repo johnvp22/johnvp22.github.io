@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/talk/index.html</loc>
+    
+    <lastmod>2019-08-20T11:49:21.430Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/08/17/POJ3579-Median/</loc>
     
     <lastmod>2019-08-17T15:24:57.866Z</lastmod>
