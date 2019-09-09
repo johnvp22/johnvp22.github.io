@@ -96,25 +96,35 @@
 
 
 
-  <meta name="description" content="URL: 洛谷题目描述:这道题我在参加比赛时居然没想出来……我太弱了 有 $n$ 个人，其中第 $i$ 个人的衣服上有一个数 $i+1$。当一个衣服上的数为 $i$ 的人在某一天被访问了，满足 $gcd(i,j)=1$的人会在第二天被访问。问多久所有人会被访问。 还给了个伯特兰-切比雪夫定理 这个定理可以看百度百科 思路:基本数论，如果$k+1$为质数，那么如果$k\times 2+1&amp;gt;n$">
-<meta name="keywords" content="题解,数论">
+  <meta name="description" content="Part0 前言给博客打广告 欢迎互换友链！ 图床，是在写博客时一个非常重要的东西，你可以用它来给大家直观的显示出你要表达的意思。 Part1 Picgo简介这是一个开源的本地上传图片到图床的软件，支持非常多的图床。包括  七牛图床 v1.0 腾讯云COS v4\v5版本 v1.1 &amp;amp; v1.5.0 又拍云 v1.2.0 GitHub v1.5.0 SM.MS v1.5.1 阿里云OSS">
+<meta name="keywords" content="教程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P5535 【XR-3】小道消息">
-<meta property="og:url" content="https://www.lijiaan.top/2019/09/01/P5535-【XR-3】小道消息/index.html">
+<meta property="og:title" content="如何优雅地使用图床——picgo使用指南">
+<meta property="og:url" content="https://www.lijiaan.top/2019/09/09/如何优雅地使用图床——picgo使用指南/index.html">
 <meta property="og:site_name" content="lijiaan的博客">
-<meta property="og:description" content="URL: 洛谷题目描述:这道题我在参加比赛时居然没想出来……我太弱了 有 $n$ 个人，其中第 $i$ 个人的衣服上有一个数 $i+1$。当一个衣服上的数为 $i$ 的人在某一天被访问了，满足 $gcd(i,j)=1$的人会在第二天被访问。问多久所有人会被访问。 还给了个伯特兰-切比雪夫定理 这个定理可以看百度百科 思路:基本数论，如果$k+1$为质数，那么如果$k\times 2+1&amp;gt;n$">
+<meta property="og:description" content="Part0 前言给博客打广告 欢迎互换友链！ 图床，是在写博客时一个非常重要的东西，你可以用它来给大家直观的显示出你要表达的意思。 Part1 Picgo简介这是一个开源的本地上传图片到图床的软件，支持非常多的图床。包括  七牛图床 v1.0 腾讯云COS v4\v5版本 v1.1 &amp;amp; v1.5.0 又拍云 v1.2.0 GitHub v1.5.0 SM.MS v1.5.1 阿里云OSS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-01T02:36:09.130Z">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062039.png">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/Animation6.gif">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062937.png">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062815.png">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907064011.png">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907064900.png">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907064751.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/07/dVxHyocTINK5W3w.png">
+<meta property="og:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907070237.png">
+<meta property="og:updated_time" content="2019-09-09T12:10:24.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P5535 【XR-3】小道消息">
-<meta name="twitter:description" content="URL: 洛谷题目描述:这道题我在参加比赛时居然没想出来……我太弱了 有 $n$ 个人，其中第 $i$ 个人的衣服上有一个数 $i+1$。当一个衣服上的数为 $i$ 的人在某一天被访问了，满足 $gcd(i,j)=1$的人会在第二天被访问。问多久所有人会被访问。 还给了个伯特兰-切比雪夫定理 这个定理可以看百度百科 思路:基本数论，如果$k+1$为质数，那么如果$k\times 2+1&amp;gt;n$">
+<meta name="twitter:title" content="如何优雅地使用图床——picgo使用指南">
+<meta name="twitter:description" content="Part0 前言给博客打广告 欢迎互换友链！ 图床，是在写博客时一个非常重要的东西，你可以用它来给大家直观的显示出你要表达的意思。 Part1 Picgo简介这是一个开源的本地上传图片到图床的软件，支持非常多的图床。包括  七牛图床 v1.0 腾讯云COS v4\v5版本 v1.1 &amp;amp; v1.5.0 又拍云 v1.2.0 GitHub v1.5.0 SM.MS v1.5.1 阿里云OSS">
+<meta name="twitter:image" content="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062039.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.lijiaan.top/2019/09/01/P5535-【XR-3】小道消息/">
+  <link rel="canonical" href="https://www.lijiaan.top/2019/09/09/如何优雅地使用图床——picgo使用指南/">
 
 
 
@@ -124,7 +134,7 @@
   };
 </script>
 
-  <title>P5535 【XR-3】小道消息 | lijiaan的博客</title>
+  <title>如何优雅地使用图床——picgo使用指南 | lijiaan的博客</title>
   
 
 
@@ -354,7 +364,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.lijiaan.top/2019/09/01/P5535-【XR-3】小道消息/">
+    <link itemprop="mainEntityOfPage" href="https://www.lijiaan.top/2019/09/09/如何优雅地使用图床——picgo使用指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lijiaan(johnvp)">
@@ -371,7 +381,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">P5535 【XR-3】小道消息
+          <h2 class="post-title" itemprop="name headline">如何优雅地使用图床——picgo使用指南
 
               
             
@@ -397,7 +407,7 @@
                 
               
 
-              <time title="创建时间：2019-09-01 10:34:19 / 修改时间：10:36:09" itemprop="dateCreated datePublished" datetime="2019-09-01T10:34:19+08:00">2019-09-01</time>
+              <time title="创建时间：2019-09-09 20:09:53 / 修改时间：20:10:24" itemprop="dateCreated datePublished" datetime="2019-09-09T20:09:53+08:00">2019-09-09</time>
             
 
             
@@ -416,8 +426,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/01/P5535-【XR-3】小道消息/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/01/P5535-【XR-3】小道消息/" itemprop="commentCount"></span>
+                <a href="/2019/09/09/如何优雅地使用图床——picgo使用指南/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/09/如何优雅地使用图床——picgo使用指南/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,15 +462,49 @@
       
 
       
-        <h4 id="URL-洛谷"><a href="#URL-洛谷" class="headerlink" title="URL: 洛谷"></a>URL: <a href="https://www.luogu.org/problem/P5535" target="_blank" rel="noopener">洛谷</a></h4><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述:"></a>题目描述:</h4><p>这道题我在参加比赛时居然没想出来……我太弱了</p>
-<p>有 $n$ 个人，其中第 $i$ 个人的衣服上有一个数 $i+1$。当一个衣服上的数为 $i$ 的人在某一天被访问了，满足 $gcd(i,j)=1$的人会在第二天被访问。问多久所有人会被访问。</p>
-<p>还给了个伯特兰-切比雪夫定理</p>
-<p>这个定理可以看百度百科</p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>基本数论，如果$k+1$为质数，那么如果$k\times 2+1&gt;n$，就说明一天就可以了。否则答案即为2，是因为那个定理，必有一个素数可以被访问，并且它能直接把所有的都访问</p>
-<p>注意$longlong$</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">ll n,k;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">2</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=<span class="built_in">sqrt</span>(x);i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>,&amp;n,&amp;k);</span><br><span class="line">	<span class="keyword">if</span>(is_prime(k+<span class="number">1</span>)&amp;&amp;(<span class="number">2</span>*(k+<span class="number">1</span>)&gt;n+<span class="number">1</span>))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"1\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"2\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        <h2 id="Part0-前言"><a href="#Part0-前言" class="headerlink" title="Part0 前言"></a>Part0 前言</h2><p><a href="https://www.lijiaan.top">给博客打广告</a></p>
+<p>欢迎互换友链！</p>
+<p>图床，是在写博客时一个非常重要的东西，你可以用它来给大家直观的显示出你要表达的意思。</p>
+<h2 id="Part1-Picgo简介"><a href="#Part1-Picgo简介" class="headerlink" title="Part1 Picgo简介"></a>Part1 Picgo简介</h2><p>这是一个开源的本地上传图片到图床的软件，支持非常多的图床。包括</p>
+<ul>
+<li>七牛图床 v1.0</li>
+<li>腾讯云COS v4\v5版本 v1.1 &amp; v1.5.0</li>
+<li>又拍云 v1.2.0</li>
+<li>GitHub v1.5.0</li>
+<li>SM.MS v1.5.1</li>
+<li>阿里云OSS v1.6.0</li>
+<li>Imgur v1.6.0</li>
+</ul>
+<p>（其实还支持微博图床，但是微博现在有了反盗链，不建议使用）</p>
+<p>也支持Linux，Mac，Windows三个操作系统。</p>
+<p>还有<a href="https://github.com/Spades-S/vs-picgo" target="_blank" rel="noopener">Vscode插件</a></p>
+<p><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">项目地址</a></p>
+<p>外观：<br><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062039.png" alt></p>
+<p>使用：<br><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/Animation6.gif" alt></p>
+<p>它还支持小窗口：</p>
+<p><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062937.png" alt></p>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">下载地址(github)</a></p>
+<p>由于众所周知的原因，github很慢，Windows安装包我已经上传到了网盘上</p>
+<p><a href="https://share.weiyun.com/5x2kF8U" target="_blank" rel="noopener">微云链接</a></p>
+<p>一路确认即可</p>
+<h2 id="Part2-sm-ms图床"><a href="#Part2-sm-ms图床" class="headerlink" title="Part2 sm.ms图床"></a>Part2 sm.ms图床</h2><p>把这个设为默认图床，直接上传即可</p>
+<p><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062815.png" alt></p>
+<h2 id="Part3-OSS系列"><a href="#Part3-OSS系列" class="headerlink" title="Part3 OSS系列"></a>Part3 OSS系列</h2><p>OSS的好处在于可以上传很大的gif，而且在国内（sm.ms在香港），所以非常快</p>
+<p>七牛云的OSS是基本免费的，但是需要已备案域名（有备案域名的大佬可不可以借我一个子域名啊……），测试域名会自动回收。</p>
+<p>我以阿里云进行介绍（阿里云需要付费，但不贵，具体可看<a href="![](https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907062937.png)">这里</a>，建议购买个40G的资源包，一个月2块）</p>
+<p>新建一个bucket<br><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907064011.png" alt></p>
+<p>在用户设置里获取你的keyid什么的（注意，这个keyid和secret可以控制你的整个账号）</p>
+<p>进行设置，存储区域在阿里云可以看<br><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907064900.png" alt></p>
+<p><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907064751.png" alt></p>
+<p>设为默认，上传即可</p>
+<h2 id="Part4-github图床"><a href="#Part4-github图床" class="headerlink" title="Part4 github图床"></a>Part4 github图床</h2><p>这个就非常慢了……</p>
+<p>新建一个存储库，再在<a href="https://github.com/settings/tokens" target="_blank" rel="noopener">这里</a>新建一个token，只选择repo权限即可</p>
+<p><img src="https://i.loli.net/2019/09/07/dVxHyocTINK5W3w.png" alt></p>
+<p>注意保存token，只会显示一次，进行配置，仓库名格式为<code>用户名/仓库名</code></p>
+<p><img src="https://lijiaan-tc.oss-cn-shanghai.aliyuncs.com/img/20190907070237.png" alt></p>
+<p>设为默认图床，即可上传</p>
+<h2 id="Part5-Imgur"><a href="#Part5-Imgur" class="headerlink" title="Part5 Imgur"></a>Part5 Imgur</h2><p>这个图床是国外的，比github还慢很多，而且限制中国IP上传，不建议使用。</p>
+<h2 id="谢谢大家"><a href="#谢谢大家" class="headerlink" title="谢谢大家"></a>谢谢大家</h2>
       
     </div>
 
@@ -483,9 +527,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/题解/" rel="tag"># 题解</a>
-          
-            <a href="/tags/数论/" rel="tag"># 数论</a>
+            <a href="/tags/教程/" rel="tag"># 教程</a>
           
         </div>
       
@@ -498,8 +540,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/01/P5534-【XR-3】等差数列/" rel="next" title="P5534 【XR-3】等差数列">
-                <i class="fa fa-chevron-left"></i> P5534 【XR-3】等差数列
+              <a href="/2019/09/02/hexo博客附加优化指南/" rel="next" title="hexo博客附加优化指南">
+                <i class="fa fa-chevron-left"></i> hexo博客附加优化指南
               </a>
             
           </div>
@@ -507,10 +549,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/02/hexo博客附加优化指南/" rel="prev" title="hexo博客附加优化指南">
-                hexo博客附加优化指南 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -733,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-洛谷"><span class="nav-number">1.</span> <span class="nav-text">URL: 洛谷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述"><span class="nav-number">2.</span> <span class="nav-text">题目描述:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part0-前言"><span class="nav-number">1.</span> <span class="nav-text">Part0 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part1-Picgo简介"><span class="nav-number">2.</span> <span class="nav-text">Part1 Picgo简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part2-sm-ms图床"><span class="nav-number">3.</span> <span class="nav-text">Part2 sm.ms图床</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part3-OSS系列"><span class="nav-number">4.</span> <span class="nav-text">Part3 OSS系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part4-github图床"><span class="nav-number">5.</span> <span class="nav-text">Part4 github图床</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part5-Imgur"><span class="nav-number">6.</span> <span class="nav-text">Part5 Imgur</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谢谢大家"><span class="nav-number">7.</span> <span class="nav-text">谢谢大家</span></a></li></ol></div>
             
 
           </div>
