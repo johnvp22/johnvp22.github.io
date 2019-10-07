@@ -96,6 +96,15 @@
 
 
 
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d7a0cf47"
+    });
+  daovoice('update');
+  </script>
+
   <meta name="description" content="这是一个atcoder上选拔赛的题2333 URL: Atcoder 题面描述： 给出一个a数组，把这个数组重复k遍，求有几个正序对，k很大 思路： 枚举a数组中元素，计算有这个元素的正序对个数，然后乘上$\frac{k\times(k+1)}{2}$再减去这个元素的逆序对个数乘k，将结果加上ans即可 代码: 123456789101112131415161718192021222324#inc">
 <meta name="keywords" content="题解,枚举">
 <meta property="og:type" content="article">

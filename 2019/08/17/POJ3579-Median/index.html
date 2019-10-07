@@ -96,6 +96,15 @@
 
 
 
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d7a0cf47"
+    });
+  daovoice('update');
+  </script>
+
   <meta name="description" content="这是第一篇在POJ的题解2333 URL:POJ 题面描述: 给出n个数，问它们两两之间差的中位数 思路: 先给这些数排序，二分答案它们的中位数，使用lower_bound计算有几个大于$x_i+mid$的，因为如果它大于$x_i+mid$，它在那个数组中的数与$x_i$的差就大于mid了 代码: 123456789101112131415161718192021222324252627#incl">
 <meta name="keywords" content="题解,二分">
 <meta property="og:type" content="article">
