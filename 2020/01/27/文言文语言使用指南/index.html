@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/20190622050607581_easyicon_net_64.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2019062205055062_easyicon_net_32.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d7a0cf47"
+    });
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="一 前言洛谷新增加了文言语言的功能，但是我并没有听说过这玩意…… 我折腾了半天，顺便写了这篇文章 二 安装&amp;amp;编译我推荐使用vscode进行编译 因为我在用 sublime也有插件支持 但由于我不用所以暂不介绍(逃 请大家自行研究 谢谢 vim也被支持了 但是太难所以不介绍 应该没人在用吧~ dev的同学们难道不觉得dev很难看吗？当然你可以尝试直接使用命令行编译你的程序，但这会很麻烦，你可">
+<meta name="keywords" content="教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文言文语言使用指南">
+<meta property="og:url" content="https://www.lijiaan.top/2020/01/27/文言文语言使用指南/index.html">
+<meta property="og:site_name" content="lijiaan的博客">
+<meta property="og:description" content="一 前言洛谷新增加了文言语言的功能，但是我并没有听说过这玩意…… 我折腾了半天，顺便写了这篇文章 二 安装&amp;amp;编译我推荐使用vscode进行编译 因为我在用 sublime也有插件支持 但由于我不用所以暂不介绍(逃 请大家自行研究 谢谢 vim也被支持了 但是太难所以不介绍 应该没人在用吧~ dev的同学们难道不觉得dev很难看吗？当然你可以尝试直接使用命令行编译你的程序，但这会很麻烦，你可">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2020/01/27/y1gdvG5ZHxtUhzX.png">
+<meta property="og:image" content="https://i.loli.net/2020/01/27/SMPQkOF3i6smvIb.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/01/27/Animationb8eed687592a3b86.gif">
+<meta property="og:updated_time" content="2020-02-02T14:03:55.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文言文语言使用指南">
+<meta name="twitter:description" content="一 前言洛谷新增加了文言语言的功能，但是我并没有听说过这玩意…… 我折腾了半天，顺便写了这篇文章 二 安装&amp;amp;编译我推荐使用vscode进行编译 因为我在用 sublime也有插件支持 但由于我不用所以暂不介绍(逃 请大家自行研究 谢谢 vim也被支持了 但是太难所以不介绍 应该没人在用吧~ dev的同学们难道不觉得dev很难看吗？当然你可以尝试直接使用命令行编译你的程序，但这会很麻烦，你可">
+<meta name="twitter:image" content="https://i.loli.net/2020/01/27/y1gdvG5ZHxtUhzX.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.lijiaan.top/2020/01/27/文言文语言使用指南/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>文言文语言使用指南 | lijiaan的博客</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a058de863840e6d006454910b05349";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lijiaan的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">by lijiaan</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-talk">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/talk/" rel="section"><i class="menu-item-icon fa fa-fw fa-pencil"></i> <br>留言板</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.lijiaan.top/2020/01/27/文言文语言使用指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lijiaan(johnvp)">
+      <meta itemprop="description" content="lijiaan的OI博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lijiaan的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">文言文语言使用指南
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-27 20:55:28" itemprop="dateCreated datePublished" datetime="2020-01-27T20:55:28+08:00">2020-01-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-02 22:03:55" itemprop="dateModified" datetime="2020-02-02T22:03:55+08:00">2020-02-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/27/文言文语言使用指南/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/01/27/文言文语言使用指南/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一-前言"><a href="#一-前言" class="headerlink" title="一 前言"></a>一 前言</h1><p>洛谷新增加了文言语言的功能，但是我并没有听说过这玩意……</p>
+<p>我折腾了半天，顺便写了这篇文章</p>
+<h1 id="二-安装-amp-编译"><a href="#二-安装-amp-编译" class="headerlink" title="二 安装&amp;编译"></a>二 安装&amp;编译</h1><p>我推荐使用<code>vscode</code>进行编译 <del>因为我在用</del></p>
+<p><code>sublime</code>也有<a href="https://github.com/absop/SublimeWenyan" target="_blank" rel="noopener">插件支持</a> <del>但由于我不用所以暂不介绍(逃</del> 请大家自行研究 谢谢</p>
+<p><code>vim</code>也被<a href="https://github.com/voldikss/vim-wenyan" target="_blank" rel="noopener">支持</a>了 但是太难所以不介绍 应该没人在用吧~</p>
+<p><code>dev</code>的同学们难道不觉得<code>dev</code>很难看吗？当然你可以尝试直接使用命令行编译你的程序，但这会很麻烦，你可以直接在<code>cmd</code>输入<code>npm install -g @wenyanlang/cli</code>来安装文言编译器，并输入<code>wenyan</code>来查看教程</p>
+<p>如果你没有<code>npm</code>的话可以先安装<code>python</code>，在<code>windows</code>的<code>python</code>安装包中可以选择安装<code>npm</code></p>
+<p><code>linux</code>或<code>mac</code>的同学也可以安装<code>vscode</code>或者<code>sublime</code>的插件</p>
+<blockquote>
+<p><code>vscode</code>真是个好东西啊~,它可以支持<code>python</code>,<code>C++</code> 甚至支持<code>markdown</code>预览</p>
+</blockquote>
+<p>进入<code>vscode</code>的插件商店，搜索<code>wenyan</code>，第一个就是了，点击<code>install</code>就可以了</p>
+<p>然后会变成这个样子</p>
+<p><img src="https://i.loli.net/2020/01/27/y1gdvG5ZHxtUhzX.png" alt="图片.png"></p>
+<p>随便找一段文言代码(后缀为.wy)，可以发现右上角多了两个按钮：</p>
+<p><img src="https://i.loli.net/2020/01/27/SMPQkOF3i6smvIb.png" alt="图片.png"></p>
+<p>第一个按钮是另一个插件的</p>
+<p>那个蓝色的代码按钮可以将代码编译成<code>javascript</code>的代码(编译为<code>python</code>也可以，只是代码前会多)</p>
+<p>那个绿色的运行按钮可以编译运行文言代码</p>
+<p>试一试吧</p>
+<p><img src="https://file.moetu.org/images/2020/01/27/Animationb8eed687592a3b86.gif" alt="Animationb8eed687592a3b86.gif"></p>
+<p>妙啊</p>
+<h1 id="三-写代码"><a href="#三-写代码" class="headerlink" title="三 写代码"></a>三 写代码</h1><p>我们用洛谷题目举例子吧</p>
+<p>首先 你需要把你的输入法调成繁体，怎么调不多叙述</p>
+<p><strong>我们来看<code>P1000 超级玛丽游戏</code></strong></p>
+<p>(代码太多 我们只看第一行的输出 文言没有代码高亮抱歉)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">吾有一言。曰「「                ********」」。書之。</span><br></pre></td></tr></table></figure>
+
+<p><strong>吾有一言</strong>:定义一个字符串，这里没有说明字符串的名字。</p>
+<p><strong>曰</strong>:相当于定义时的’=’ 这里的制表符一个是括号，一个是双引号</p>
+<p>如果你使用<code>vscode</code>的文言插件的话只需按<code>&#39;</code>键(键盘<code>asd</code>一行最左边)就可以自动输入这些奇怪的符号了</p>
+<p><strong>書之</strong>:输出它</p>
+<p><strong>文章大意</strong>: <del>我有一句话，是”               <strong>****</strong>“，输出它</del></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"                ********"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注: 后面所有因翻译为<code>C++</code>过于抽象，大多翻译为<code>javascript</code>语法，少部分直译</p>
+<h2 id="我们再来看P1001-A-B-Problem"><a href="#我们再来看P1001-A-B-Problem" class="headerlink" title="我们再来看P1001 A+B Problem"></a>我们再来看<code>P1001 A+B Problem</code></h2><p>标准代码真烦……</p>
+<p>我们先复制下来再看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">施「require(&apos;fs&apos;).readFileSync」於「「/dev/stdin」」。名之曰「數據」。</span><br><span class="line">施「(buf =&gt; buf.toString().trim())」於「數據」。昔之「數據」者。今其是矣。</span><br><span class="line">施「(s =&gt; s.split(&apos; &apos;))」於「數據」。昔之「數據」者。今其是矣。</span><br><span class="line">注曰。「「文言尚菜，無對象之操作，故需 JavaScript 之语法」」。</span><br><span class="line"></span><br><span class="line">夫「數據」之一。取一以施「parseInt」。名之曰「甲」。</span><br><span class="line">夫「數據」之二。取一以施「parseInt」。名之曰「乙」。</span><br><span class="line"></span><br><span class="line">加「甲」以「乙」。書之。</span><br></pre></td></tr></table></figure>
+
+<h3 id="先看第一句"><a href="#先看第一句" class="headerlink" title="先看第一句"></a>先看第一句</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**施a于b**: 相当于`a(b)`，将b作为参数传入名为a的函数中</span><br><span class="line"></span><br><span class="line">**/dev/stdin**: 标准输入文件</span><br><span class="line"></span><br><span class="line">**注意：`javascript`并不支持直接从`console`读入数据，但是在`linux`下，此文件相当于控制台的输入，`Windows`则只能使用绝对路径进行本地测试，如`C:/users/xxx/desktop/1.in`**</span><br><span class="line"></span><br><span class="line">**名之曰……**: 将其命名为……</span><br><span class="line"></span><br><span class="line">**數據**: 数据</span><br><span class="line"></span><br><span class="line">所以这句相当于(`C++`表示已无能为力)</span><br><span class="line">```javascript</span><br><span class="line">数据=require(&apos;fs&apos;).readFileSync(&quot;/dev/stdin&quot;)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="看第二句"><a href="#看第二句" class="headerlink" title="看第二句"></a>看第二句</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**昔之a者。今b是矣**: 相当于`a=b`</span><br><span class="line"></span><br><span class="line">这就很好理解了</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">数据 = (buf =&gt; buf.toString().trim())(数据)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>将输入转为字符串</p>
+<h3 id="看第三句"><a href="#看第三句" class="headerlink" title="看第三句"></a>看第三句</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">没啥说的，分开输入数据成一个数组，和`python`的`split`操作接近</span><br><span class="line"></span><br><span class="line">### 看第四句</span><br><span class="line"></span><br><span class="line">&gt; ```注曰。「「文言尚菜，無對象之操作，故需 JavaScript 之语法」」。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>注曰。</strong>: 注释</p>
+<p>很好理解，就是个注释</p>
+<h3 id="第五，六句"><a href="#第五，六句" class="headerlink" title="第五，六句"></a>第五，六句</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; ```夫「數據」之二。取一以施「parseInt」。名之曰「乙」。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>夫a之b</strong>: 同<code>a[b]</code>。这里下标不减一</p>
+<p><strong>取k以施a</strong>: 将刚才列的后<code>k</code>数作为参数传入名为<code>a</code>的函数中</p>
+<p>不难理解:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">甲=<span class="built_in">parseInt</span>(数据[<span class="number">0</span>])</span><br><span class="line">乙=<span class="built_in">parseInt</span>(数据[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>将数据转为整数格式，与<code>python</code>的<code>int()</code>类似</p>
+<h3 id="最后一句"><a href="#最后一句" class="headerlink" title="最后一句"></a>最后一句</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**加a以b**: 同`a+b`。</span><br><span class="line"></span><br><span class="line">不解释。</span><br><span class="line"></span><br><span class="line">## 接下来来看`P1046 陶陶摘苹果`</span><br><span class="line"></span><br><span class="line">输入变成了一串数……</span><br><span class="line"></span><br><span class="line">但是没关系，只要稍微处理下即可。</span><br><span class="line"></span><br><span class="line">这次分开上代码，完整代码可以看[这里](https://www.luogu.com.cn/blog/lijiaan/p1046-tao-tao-zhai-peng-guo)</span><br><span class="line"></span><br><span class="line">### 前三句</span><br><span class="line">&gt;```施「require(&apos;fs&apos;).readFileSync」於「「C:\\02Cpp\\文言\\dev\\stdin.in」」。名之曰「數據」。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;```施「(s =&gt; s.split(&apos;\n&apos;))」於「數據」。昔之「數據」者。今其是矣。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>老样子，只是因为是两行数据，变成按换行分了</p>
+<p>注：也可以用正则表达式<code>input_str.split(/[\s\n]/)</code>来分割，只是这样无法辨别出哪些数在哪一行</p>
+<h3 id="第五句"><a href="#第五句" class="headerlink" title="第五句"></a>第五句</h3><p>这里是把输入的第一行拿出来按空格分开成一个数组“甲”。</p>
+<h3 id="第六句"><a href="#第六句" class="headerlink" title="第六句"></a>第六句</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**凡a中之b**: 枚举a中的每个元素b，注意这里是**中之**，不是**之中**</span><br><span class="line"></span><br><span class="line">### 第八句</span><br><span class="line"></span><br><span class="line">**充a以b**: 在a后添加一个元素b</span><br><span class="line"></span><br><span class="line">### 第九句</span><br><span class="line"></span><br><span class="line">**云云**: 可以理解为后面的大括号</span><br><span class="line"></span><br><span class="line">### 第十四，十五，十六句</span><br><span class="line"></span><br><span class="line">**若……者……也**:`if(……)&#123;……&#125;`</span><br><span class="line"></span><br><span class="line">### 其他部分显而易见</span><br><span class="line"></span><br><span class="line">## 其他语法</span><br><span class="line"></span><br><span class="line">不用例题做示范。</span><br><span class="line"></span><br><span class="line">### 函数系列</span><br><span class="line"></span><br><span class="line">**吾有一術。名之曰「吸星大法」。是術曰。⋯⋯是謂「吸星大法」之術也。**: 定义一个叫吸星大法的函数</span><br><span class="line"></span><br><span class="line">**吾有一術。名之曰「翻倍」。欲行是術。必先得一數。曰「甲」。乃行是術曰。乘「甲」以二。名之曰「乙」。乃得「乙」。是謂「翻倍」之術也。**: 定义一个有参数的函数</span><br><span class="line"></span><br><span class="line">**乃得k**: `return k`</span><br><span class="line"></span><br><span class="line">**吾嘗觀「「算經」」之書。方悟「正弦」「餘弦」之義。**: 调用标准库中的函数，具体可见[这里](https://github.com/wenyan-lang/wenyan/wiki/Standard-Library-Cheatsheet)</span><br><span class="line"></span><br><span class="line">### 循环系列</span><br><span class="line"></span><br><span class="line">**为是`k`遍**: 循环`k`遍(`k`可替换成`百`，`十一万四千五百十四`等等)</span><br><span class="line"></span><br><span class="line">**恒为是**: `while`循环</span><br><span class="line"></span><br><span class="line">**乃止**: `break`</span><br><span class="line"></span><br><span class="line">### 其他请看[官方语法手册](https://github.com/wenyan-lang/wenyan/wiki/Syntax-Cheatsheet)</span><br><span class="line"></span><br><span class="line">## 四 彩蛋</span><br><span class="line"></span><br><span class="line">[视频](https://www.bilibili.com/video/av85906055/)</span><br><span class="line"></span><br><span class="line">还有一个re掉的并查集代码</span><br><span class="line"></span><br><span class="line">求查错</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>施「require(‘fs’).readFileSync」於「「dev/stdin」」。名之曰「數據」。<br>施「(buf =&gt; buf.toString().trim())」於「數據」。昔之「數據」者。今其是矣。<br>施「(s =&gt; s.split(/[\s\n]/))」於「數據」。昔之「數據」者。今其是矣。<br>吾有五列。名之曰「輸入」。名之曰「id」。名之曰「n」。名之曰「m」。名之曰「答案」。<br>吾有二數。曰一。曰一。名之曰「p」。名之曰「tmp」。<br>吾有五數。名之曰「甲」。名之曰「乙」。名之曰「丙」。名之曰「戊」。名之曰「己」。<br>凡「數據」中之「數」。<br>    若「數」不等於「「」」者。<br>        夫「數」。取一以施「parseInt」。名之曰「某數」。<br>            充「輸入」以「某數」。<br>    也。<br>云云。<br>吾有一術。名之曰「得入」。是術曰。<br>    昔之「p」者。今「p+1」是矣。<br>    夫「輸入」之「p-1」。乃得矣。<br>是謂「得入」之術也。<br>吾有一數。名之曰「id之x」。<br>吾有一術。名之曰「尋」。欲行是術。必先得一數。曰「x」。是術曰。<br>    若「id」之「x」等於「x」者。<br>        乃得「x」。<br>    若非。<br>        夫「id」之「x」。取一以施「尋」。昔之「甲」者。今其是矣。<br>        昔之「id」之「x」者。今「甲」是矣。<br>        夫「id」之「x」。乃得矣。<br>    也。<br>是謂「尋」之術也。<br>吾有一術。名之曰「合」。欲行是術。必先得二數。曰「x」。曰「y」。是術曰。<br>    施「尋」於「x」。昔之「甲」者。今其是矣。<br>    施「尋」於「y」。昔之「乙」者。今其是矣。<br>    昔之「id」之「乙」者。今「甲」是矣。<br>    乃歸空無。<br>是謂「合」之術也。<br>施「得入」。昔之「m」者。今其是矣。<br>施「得入」。昔之「n」者。今其是矣。<br>昔之「甲」者。今一是矣。<br>為是「m」遍。<br>    充「id」以「甲」。<br>    昔之「甲」者。今「甲+1」是矣。<br>云云。<br>注曰。……<br>為是「n」遍。<br>    施「得入」。昔之「甲」者。今其是矣。<br>    施「得入」。昔之「乙」者。今其是矣。<br>    施「得入」。昔之「丙」者。今其是矣。<br>    若 「甲」等於 一 者。<br>        夫「乙」。夫「丙」。取二以施「合」。<br>    若非<br>        施「尋」於「乙」。昔之「戊」者。今其是矣。<br>        施「尋」於「丙」。昔之「己」者。今其是矣。<br>        若 戊 等於 己 者。<br>            夫「「Y」」。書之。<br>        若非。<br>            夫「「N」」。書之。<br>        也。<br>    也。<br>云云。<br>```</p>
+<h2 id="五-谢谢！"><a href="#五-谢谢！" class="headerlink" title="五 谢谢！"></a>五 谢谢！</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/08/LG3368-【模板】树状数组-2/" rel="next" title="LG3368 【模板】树状数组 2">
+                <i class="fa fa-chevron-left"></i> LG3368 【模板】树状数组 2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lijiaan(johnvp)</p>
+              <p class="site-description motion-element" itemprop="description">lijiaan的OI博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/johnvp22" title="GitHub &rarr; https://github.com/johnvp22" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:johnvp@163.com" title="邮件 &rarr; mailto:johnvp@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>邮件</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.luogu.org/space/show?uid=149872" title="洛谷 &rarr; https://www.luogu.org/space/show?uid=149872" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kaispace.com.cn" title="http://kaispace.com.cn" rel="noopener" target="_blank">zhangkai博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.likecoding.ooo" title="https://blog.likecoding.ooo" rel="noopener" target="_blank">jiangyue博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wxwoo.top" title="https://wxwoo.top" rel="noopener" target="_blank">wxooo博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.konnyaku.tk/" title="https://blog.konnyaku.tk/" rel="noopener" target="_blank">konnyaku博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.code004.ml/" title="https://www.code004.ml/" rel="noopener" target="_blank">code004博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zymredbird.github.io" title="https://zymredbird.github.io" rel="noopener" target="_blank">zymredbird博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  
+		  <div id="music163player">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=459434585&auto=1&height=66">
+			</iframe>
+		  </div>
+		  
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-前言"><span class="nav-number">1.</span> <span class="nav-text">一 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-安装-amp-编译"><span class="nav-number">2.</span> <span class="nav-text">二 安装&amp;编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-写代码"><span class="nav-number">3.</span> <span class="nav-text">三 写代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我们再来看P1001-A-B-Problem"><span class="nav-number">3.1.</span> <span class="nav-text">我们再来看P1001 A+B Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先看第一句"><span class="nav-number">3.1.1.</span> <span class="nav-text">先看第一句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看第二句"><span class="nav-number">3.1.2.</span> <span class="nav-text">看第二句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看第三句"><span class="nav-number">3.1.3.</span> <span class="nav-text">看第三句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五，六句"><span class="nav-number">3.1.4.</span> <span class="nav-text">第五，六句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后一句"><span class="nav-number">3.1.5.</span> <span class="nav-text">最后一句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五句"><span class="nav-number">3.1.6.</span> <span class="nav-text">第五句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六句"><span class="nav-number">3.1.7.</span> <span class="nav-text">第六句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-谢谢！"><span class="nav-number">3.2.</span> <span class="nav-text">五 谢谢！</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lijiaan(johnvp)</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("06/25/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+<br>
+
+<div class="powered-by">
+	<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target＝_blank><img src="https://i.loli.net/2019/09/07/KcIunZVFGoMW8fA.png" width="297" height="151"></a>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="46,42,124" opacity="0.3" zindex="-1" count="100" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: true,
+      notify: false,
+      appId: 'QTLKQ9EAiWHHmtTazks3k2Qc-MdYXbMMI',
+      appKey: '1y2re34IHis4AEqigyBCFgu0',
+      placeholder: '欢迎来评论~٩(๑❛ᴗ❛๑)۶',
+      avatar: 'mm',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/miku.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
